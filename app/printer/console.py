@@ -3,6 +3,6 @@ from app.printer.base import BasePrinter
 
 
 class ConsolePrinter(BasePrinter):
-    def print(self, book: Book):
+    def print(self, book: Book) -> None:
         print(f"Printing the book: {book.title}...")
         print(book.content)
