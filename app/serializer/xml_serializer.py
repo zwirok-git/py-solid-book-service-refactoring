@@ -1,4 +1,4 @@
-import xml.etree.ElementTree as et
+import xml.etree.ElementTree as ElementTree
 
 from app.book import Book
 from app.serializer.base import BaseSerializer
@@ -6,12 +6,12 @@ from app.serializer.base import BaseSerializer
 
 class XmlSerializer(BaseSerializer):
     def serialize(self, book: Book) -> str:
-        root = et.Element("book")
+        root = ElementTree.Element("book")
 
-        title = et.SubElement(root, "title")
+        title = ElementTree.SubElement(root, "title")
         title.text = book.title
 
-        content = et.SubElement(root, "content")
+        content = ElementTree.SubElement(root, "content")
         content.text = book.content
 
-        return et.tostring(root, encoding="unicode")
+        return ElementTree.tostring(root, encoding="unicode")
